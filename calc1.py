@@ -13,6 +13,10 @@ except ValueError:
     except ValueError:
         print("Остановись пока не позно!!")
 num_2 = input("Введите второе число")
+# try:
+#     num_2 = "0"
+# except ZeroDivisionError:
+#     print("На ноль делить нельзя")
 try:
     num_2 = float(num_2)
 except ValueError:
@@ -32,7 +36,9 @@ elif calc == '-':
 
 elif calc == '*':
     print(num_1 * num_2)
-elif num_2 != '0':
-    print("На ноль делить нельзя")
 else:
-    print(num_1 / num_2)
+    try:
+        print(num_1 / num_2)
+        num_2 != '0'
+    except ZeroDivisionError:
+        print("На ноль делить нельзя")
