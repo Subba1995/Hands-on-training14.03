@@ -1,44 +1,18 @@
-print("Введите желаемое действие")
-calc = input("+,-,*,/ :")
-if calc not in ('+', '-', '*', '/'):
-    print('конец программмы')
-    quit()
-num_1 = input("Введите первое число")
-try:
-    num_1 = float(num_1)
-except ValueError:
-    num_1 = input("Та введи ты число, тебе что не интересно")
-    try:
-        num_1 = float(num_1)
-    except ValueError:
-        print("Остановись пока не позно!!")
-num_2 = input("Введите второе число")
-# try:
-#     num_2 = "0"
-# except ZeroDivisionError:
-#     print("На ноль делить нельзя")
-try:
-    num_2 = float(num_2)
-except ValueError:
-    num_2 = input("Ну я же попоросил написать число:")
-    try:
-        num_2 = float(num_2)
-    except ValueError:
-        print('Это была последняя капля')
+my_friends = {}
+active = True
+while active:
+    name = input("what is your name?\n:")
+    age = input("how old are you?\n:")
+    home = input("where is you home?\n:")
 
-if calc == '+':
-    print(num_1 + num_2)
-elif calc == '-':
-    try:
-        print(num_1 - num_2)
-    except TypeError:
-        print("Я смотрю ты всё таки стараешься")
+    while True:
+        my_friends[name.title()] = {"age": int(age),
+                              "home": home.title()
+                              }
+        break
 
-elif calc == '*':
-    print(num_1 * num_2)
-else:
-    try:
-        print(num_1 / num_2)
-        num_2 != '0'
-    except ZeroDivisionError:
-        print("На ноль делить нельзя")
+    repeat = input("Do you whant to repeat?")
+    if repeat == "no":
+        active = False
+for friend in my_friends.items():
+    print(friend)

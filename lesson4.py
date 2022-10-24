@@ -1,23 +1,27 @@
-# Задание выполнить в отдельном py файле. Все пункты задания отделять друг от друга строкой символов комментария. Вот так:
-# #####################################################
-# Теперь задания:
-# 1) У вас есть переменная value, тип - int. Написать тернарный оператор для переменной new_value по такому правилу: если value меньше 100, то new_value равно половине значения value, в противном случае - противоположне value число
-value = 90
-new_value = value/2 if value < 100 else -value
-print(new_value)
-# 2) У вас есть переменная value, тип - int. Написать тернарный оператор для переменной new_value по такому правилу: если value меньше 100, то new_value равно 1, в противном случае - 0
-new_value = 1 if value < 100 else 0
-print(new_value)
-# 3) У вас есть переменная value, тип - int. Написать тернарный оператор для переменной new_value по такому правилу: если value меньше 100, то new_value равно True, в противном случае - False
-new_value = value < 100
-print(new_value)
-# 4) У вас есть переменная my_str, тип - str. Если ее длинна меньше 5, то допишите в конец строки себя же. Пример: было - "qwer", стало - "qwerqwer". Если длинна не меньше 5, то оставить строку как есть.
-my_str = "qwer"
-my_string = my_str*2 if len(my_str) < 5 else my_str
-print(my_string)
-
-# 5) У вас есть переменная my_str, тип - str. Если ее длинна меньше 5, то допишите в конец строки перевернутую себя же. Пример: было - "qwer", стало - "qwerrewq". Если длинна не меньше 5, то оставить строку как есть.
-
-my_string = my_str + my_str[::-1] if len(my_str) < 5 else my_str
-print(my_string)
-# 6) Доработать задание с калькулятором, чтобы в конце вычисления у пользователя спрашивало, нужен ли калькулятор еще. И если да, то запустить вычисление заново
+def music_album(name_album,song,artist=None,group=None):
+    album = {"name": name_album,
+             "songs":song
+    }
+    if group:
+        album["group"] = group
+    if artist:
+        album["artist"] = artist
+    return album
+count = 0
+while count <= 3:
+    name_album = input("Напиши название музыкального альбома:")
+    name_artist = input("Напиши имя артиста:")
+    name_group = None
+    if not name_artist:
+        name_group = input("Напиши название группы:")
+    text = "Напиши название песни, но если они закончились напиши q:"
+    album_songs = []
+    while True:
+        name_song = input(text)
+        if name_song == "q":
+            break
+        album_songs.append(name_song)
+        continue
+    favorite_album = music_album(name_album,album_songs,name_artist,name_group)
+    count +=1
+    print(favorite_album)
